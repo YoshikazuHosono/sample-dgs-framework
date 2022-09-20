@@ -15,12 +15,6 @@ class ShowsFetcher {
             Show("Orange is the New Black", 2013))
 
     @DgsQuery
-    fun shows(@InputArgument titleFilter : String?): List<Show> {
-        return if(titleFilter != null) {
-            shows.filter { it.title?.contains(titleFilter)!! }
-        } else {
-            shows
-        }
-    }
+    fun shows(@InputArgument titleFilter: String): List<Show> = shows.filter { it.title.contains(titleFilter) }
 
 }
